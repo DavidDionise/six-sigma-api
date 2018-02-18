@@ -1,0 +1,25 @@
+{
+  "name": "six-sigma-api",
+  "version": "1.0.0",
+  "description": "API for Six Sigma",
+  "main": "server.js",
+  "scripts": {
+    "watch": "babel src -d dist -w",
+    "dev": "NODE_ENV=development nodemon dist/server.js"
+  },
+  "author": "David Dionise",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.4",
+    "dotenv": "^5.0.0",
+    "express": "^4.16.2",
+    "mongodb": "^3.0.2",
+    "sha256": "^0.2.0",
+    "winston": "^2.4.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-module-resolver": "^3.1.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0"
+  }
+}
