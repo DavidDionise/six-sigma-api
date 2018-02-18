@@ -3,9 +3,9 @@ const { ValidationError, AuthorizationError } = Error;
 const { verifyJwt } = require('utils');
 
 const excluded_paths = [
-  'signup',
-  'signin',
-  'check-auth'
+  'users/signup',
+  'users/signin',
+  'users/check-auth'
 ];
 
 const auth = async function(req, res, next) {

@@ -10,9 +10,9 @@ const router = db => {
       const [ method, path ] = route.split(' ').filter(e => e);
       return (
         method == req.method &&
-        path == req.path
+        (path == req.path || `${path}/` == req.path)
       );
-    })
+    });
     if(current_route) {
       try {
         await routes[current_route]();

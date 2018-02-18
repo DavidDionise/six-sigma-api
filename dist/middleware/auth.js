@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 const { ValidationError, AuthorizationError } = Error;
 const { verifyJwt } = require('../utils');
 
-const excluded_paths = ['signup', 'signin', 'check-auth'];
+const excluded_paths = ['users/signup', 'users/signin', 'users/check-auth'];
 
 const auth = async function (req, res, next) {
   if (!excluded_paths.includes(req.path.substr(1))) {

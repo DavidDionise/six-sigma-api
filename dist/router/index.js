@@ -8,7 +8,7 @@ const router = db => {
     const routes = initRoutes(Interactors);
     const current_route = Object.keys(routes).find(route => {
       const [method, path] = route.split(' ').filter(e => e);
-      return method == req.method && path == req.path;
+      return method == req.method && (path == req.path || `${path}/` == req.path);
     });
     if (current_route) {
       try {

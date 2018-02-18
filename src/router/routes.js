@@ -1,10 +1,10 @@
 
 const initRoutes = Interactors => {
   return {
-    ['POST /signup']: Interactors.signUpUser,
-    ['POST /signin']: Interactors.signInUser,
-    ['POST /updateForm']: Interactors.updateForm,
-    ['GET /fetchForms']: Interactors.fetchForms
+    ['POST /users/signup']: Interactors.signUpUser,
+    ['POST /users/signin']: Interactors.signInUser,
+    ['PUT /fields/update']: Interactors.updateField,
+    ['GET /fields']: Interactors.fetchFields
   }
 }
 
