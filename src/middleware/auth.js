@@ -5,11 +5,21 @@ const { verifyJwt } = require('utils');
 const excluded_paths = [
   'users/signup',
   'users/signin',
-  'users/check-auth'
+  'users/validate-auth',
+  'fields'
 ];
 
 const auth = async function(req, res, next) {
-  if(!excluded_paths.includes(req.path.substr(1))) {
+  const bypass_auth = excluded_paths.find(path => {
+    if(req.path[req.path.length - 1] == '/') {
+      return `${path}/` == req.path.substr(1);
+    }
+    else {
+      return path == req.path.substr(1);
+    }
+  });
+
+  if(bypass_auth == null) {
     try {
       const { headers } = req;
       if(!headers.token) {

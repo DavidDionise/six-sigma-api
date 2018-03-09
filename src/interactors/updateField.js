@@ -4,17 +4,17 @@ const { ObjectID } = require('mongodb');
 /**
  * @description - Updates the text body of a field
  * @param {Object} payload
- *    @prop {String} _id - The _id of the field being updated`
- *    @prop {String} text - The updated text body
+ *    @param {String} payload._id - The _id of the field being updated
+ *    @param {String} payload.markup - The updated markup body
  */
 const updateField = async function(payload) {
   const Fields = this.db.collection('fields');
-  const { _id, text } = payload;
+  const { _id, markup } = payload;
   if(!_id) {
     throw new ValidationError(`You must include a '_id' property to update a field`);
   }
-  if(!text) {
-    throw new ValidationError(`You must include a 'text' property to update a field`);
+  if(!markup) {
+    throw new ValidationError(`You must include a 'markup' property to update a field`);
   }
 
   const current_field = await Fields.findOne({ _id: ObjectID(_id) });
@@ -24,7 +24,7 @@ const updateField = async function(payload) {
 
   const update_res = await Fields.findOneAndUpdate(
     { _id: ObjectID(_id) },
-    { $set: { text } },
+    { $set: { markup } },
     { returnOriginal: false }
   );
   this.body = { updated_field: update_res.value };
