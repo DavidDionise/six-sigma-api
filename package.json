@@ -4,6 +4,7 @@
   "description": "API for Six Sigma",
   "main": "server.js",
   "scripts": {
+    "build": "babel src -d dist",
     "watch": "babel src -d dist -w",
     "dev": "NODE_ENV=development nodemon dist/server.js"
   },

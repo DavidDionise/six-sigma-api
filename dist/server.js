@@ -23,6 +23,7 @@ const initServer = async () => {
   app.use(initContext);
   app.use(auth);
   // ******************************** //
+
   // **** ROUTES ******************** //
   app.use(router(db));
   // ******************************** //
